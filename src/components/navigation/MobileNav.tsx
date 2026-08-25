@@ -73,9 +73,6 @@ export default function MobileNav({ activeSection }: MobileNavProps) {
     return () => document.removeEventListener('keydown', handleTab);
   }, [isOpen]);
 
-  // Radius for the fan out (in pixels)
-  const radius = 115;
-  
   return (
     <>
       <div 
@@ -90,13 +87,9 @@ export default function MobileNav({ activeSection }: MobileNavProps) {
           aria-hidden={!isOpen}
         >
           {NAV_ITEMS.map((item, index) => {
-            // Calculate radial fan-out from top (90deg) to left (180deg)
-            const angleDeg = 90 + (index * (90 / Math.max(1, NAV_ITEMS.length - 1)));
-            const angleRad = (angleDeg * Math.PI) / 180;
-            
-            // Math for x/y translation (bottom-right origin)
-            const x = Math.cos(angleRad) * radius;
-            const y = -Math.sin(angleRad) * radius;
+            // Stack items vertically directly above the toggle button
+            const x = 0;
+            const y = -(62 + index * 56);
 
             const isActive = activeSection === item.id;
             
