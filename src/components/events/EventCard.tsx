@@ -32,6 +32,18 @@ export const EventCard = ({ event }: EventCardProps) => {
           <span className={styles.eventVenue}>{event.venue}</span>
         </div>
         <p className={styles.eventDescription}>{event.description}</p>
+        {event.flyerUrl && (
+          <div className={styles.flyerContainer}>
+            <a 
+              href={event.flyerUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={styles.flyerButton}
+            >
+              <span>📄 View Event Flyer</span>
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

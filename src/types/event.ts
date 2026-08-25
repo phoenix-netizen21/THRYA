@@ -8,4 +8,5 @@ export interface ClubEvent {
   photos?: string[];
   videos?: string[];
   status: 'upcoming' | 'past';
+  flyerUrl?: string;
 }

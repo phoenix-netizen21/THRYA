@@ -24,6 +24,14 @@ export const teamData = {
       position: 'Co-Convener',
       isLead: true,
     },
+    {
+      id: 'coconv-2',
+      name: 'Nandhana Manoj',
+      department: 'Traditional Arts Club',
+      photoUrl: '/images/team/nandhana-manoj.jpeg',
+      position: 'Co-Convener',
+      isLead: true,
+    },
   ] as TeamMember[],
 
   wings: {
