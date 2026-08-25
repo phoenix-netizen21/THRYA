@@ -1,0 +1,94 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  background-color: transparent;
+  border-radius: 12px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.imageContainer {
+  position: relative;
+  width: 200px;
+  aspect-ratio: 3 / 4;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background-color: var(--color-red-dark);
+}
+
+/* Specific Highlight Border for Team Leads */
+.leadBorder {
+  border: 2px solid var(--color-gold-primary, #F59E0B);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25), 0 0 10px rgba(220, 38, 38, 0.15);
+}
+
+.card:hover .imageContainer {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Hover glow for lead image borders */
+.card:hover .leadBorder {
+  border-color: var(--color-gold-light, #FCD34D);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4), 0 0 15px rgba(220, 38, 38, 0.25);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.name {
+  color: var(--color-white, #FFFFFF);
+  font-family: var(--font-poppins, sans-serif);
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.card:hover .name {
+  color: var(--color-gold-light, #FCD34D);
+}
+
+.role {
+  color: var(--color-gold-primary, #F59E0B);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.department {
+  color: var(--color-gray-light, rgba(255, 255, 255, 0.6));
+  font-weight: 300;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .imageContainer {
+    transition: none;
+  }
+  .card:hover {
+    transform: none;
+  }
+}

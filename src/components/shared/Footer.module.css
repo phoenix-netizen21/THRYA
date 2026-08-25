@@ -1,0 +1,133 @@
+.footer {
+  background-color: var(--color-bg-dark);
+  border-top: 1px solid var(--color-gold-primary);
+  padding: 4rem 2rem 2rem;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.brandSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brandName {
+  font-family: var(--font-playfair);
+  color: var(--color-white);
+  font-size: 3rem;
+  letter-spacing: 0.15em;
+  margin: 0;
+}
+
+.tagline {
+  font-family: var(--font-poppins);
+  color: var(--color-gold-primary);
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  margin: 0;
+}
+
+.nav {
+  width: 100%;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.navLink {
+  font-family: var(--font-poppins);
+  color: var(--color-off-white);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: var(--color-gold-light);
+}
+
+.socialSection {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.socialIcon {
+  color: var(--color-gold-primary);
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.socialIcon:hover {
+  color: var(--color-gold-light);
+  transform: translateY(-2px);
+}
+
+.bottomSection {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  width: 100%;
+}
+
+.collegeName {
+  font-family: var(--font-poppins);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.copyright {
+  font-family: var(--font-poppins);
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .brandName {
+    font-size: 2.5rem;
+  }
+  
+  .navList {
+    gap: 1rem;
+  }
+  
+  .footer {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navLink {
+    transition: none;
+  }
+  .socialIcon {
+    transition: none;
+  }
+  .socialIcon:hover {
+    transform: none;
+  }
+}

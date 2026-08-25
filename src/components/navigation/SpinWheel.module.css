@@ -1,0 +1,140 @@
+.navContainer {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@media (max-width: 1023px) {
+  .navContainer {
+    display: none;
+  }
+}
+
+/* ---------- Menu Trigger Button ---------- */
+.menuTrigger {
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--color-bg-card, rgba(26, 5, 5, 0.8));
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 0.5rem 1.25rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.4s var(--transition-spring);
+  box-shadow: var(--shadow-card);
+}
+
+.menuTrigger:hover {
+  border-color: var(--color-gold-primary);
+  box-shadow: var(--shadow-gold), 0 0 15px rgba(220, 38, 38, 0.2);
+  transform: translateY(-2px);
+}
+
+.triggerText {
+  font-family: var(--font-poppins);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--color-off-white);
+  transition: color 0.3s ease;
+}
+
+.menuTrigger:hover .triggerText {
+  color: var(--color-gold-light);
+}
+
+.triggerIconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-red-primary);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  transition: all 0.4s var(--transition-spring);
+}
+
+.menuTrigger:hover .triggerIconContainer {
+  transform: rotate(30deg) scale(1.1);
+  background: var(--color-red-hover);
+  border-color: var(--color-gold-primary);
+}
+
+.triggerIcon {
+  font-size: 0.85rem;
+  color: var(--color-white);
+  display: inline-block;
+  line-height: 1;
+}
+
+/* ---------- Backdrop ---------- */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 1, 1, 0.65);
+  backdrop-filter: blur(8px);
+  z-index: 90;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+}
+
+.open .backdrop {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ---------- Wheel Panel ---------- */
+.wheelPanel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 480px;
+  background: linear-gradient(270deg, var(--color-bg-dark) 40%, rgba(13, 1, 1, 0.95) 100%);
+  border-left: 1px solid rgba(245, 158, 11, 0.15);
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  transform: translateX(100%);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.open .wheelPanel {
+  transform: translateX(0);
+}
+
+/* Wrapper for the OptionWheel component to fill the panel layout vertically */
+.wheelWrapper {
+  width: 100%;
+  height: 80vh; /* Keeps the wheel centered in viewport height */
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* ---------- Keyboard Focus State ---------- */
+.menuTrigger:focus-visible {
+  outline: 2px dashed var(--color-gold-primary);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wheelPanel,
+  .backdrop,
+  .menuTrigger {
+    transition: none !important;
+  }
+}

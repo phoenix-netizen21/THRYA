@@ -1,0 +1,153 @@
+.aboutSection {
+  background-color: rgba(13, 1, 1, 0.75);
+  padding: 6rem 2rem;
+  color: var(--color-white);
+  overflow: hidden;
+  will-change: transform;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.splitLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.headerArea {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+.heading {
+  font-family: var(--font-playfair);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.1;
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
+}
+
+.accentLine {
+  height: 4px;
+  width: 80px;
+  background-color: var(--color-gold-primary);
+  border-radius: 2px;
+}
+
+.contentArea {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+  will-change: transform, opacity;
+}
+
+.description {
+  font-family: var(--font-poppins);
+  color: var(--color-off-white);
+  font-weight: 300;
+  line-height: 1.8;
+  font-size: 1.125rem;
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+  will-change: transform, opacity;
+}
+
+.pillarCard {
+  background-color: var(--color-red-dark);
+  border: 1px solid rgba(245, 158, 11, 0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pillarCard:hover {
+  border-color: var(--color-gold-primary);
+  transform: translateY(-5px);
+}
+
+.pillarIcon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-gold-light);
+}
+
+.pillarTitle {
+  font-family: var(--font-playfair);
+  font-size: 1.25rem;
+  color: var(--color-gold-light);
+  margin-bottom: 0.5rem;
+}
+
+.pillarDesc {
+  font-family: var(--font-poppins);
+  font-size: 0.9rem;
+  color: var(--color-off-white);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* Visibility classes for scroll reveal */
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .splitLayout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 4rem;
+  }
+  
+  .headerArea {
+    flex: 1;
+  }
+  
+  .contentArea {
+    flex: 2;
+  }
+  
+  .pillarsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .pillarsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .headerArea,
+  .contentArea,
+  .pillarsGrid {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .pillarCard {
+    transition: none;
+  }
+  
+  .pillarCard:hover {
+    transform: none;
+  }
+}
