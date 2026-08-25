@@ -133,7 +133,43 @@
 }
 
 .toggleButtonOpen {
-  transform: rotate(45deg);
+  /* The icon inside rotates, button stays upright */
+}
+
+.hamburgerIcon {
+  width: 20px;
+  height: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.4s var(--transition-spring, ease);
+}
+
+.line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-gold-light, #FCD34D);
+  border-radius: 2px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+/* Transform lines when open to form an X */
+.toggleButtonOpen .hamburgerIcon {
+  transform: rotate(180deg);
+}
+
+.toggleButtonOpen .line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.toggleButtonOpen .line:nth-child(2) {
+  opacity: 0;
+}
+
+.toggleButtonOpen .line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 @media (prefers-reduced-motion: reduce) {

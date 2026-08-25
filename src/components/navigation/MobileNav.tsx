@@ -136,7 +136,11 @@ export default function MobileNav({ activeSection }: MobileNavProps) {
           aria-label="Toggle navigation"
           aria-controls="mobile-menu"
         >
-          {isOpen ? '+' : '⬡'}
+          <div className={styles.hamburgerIcon}>
+            <span className={styles.line}></span>
+            <span className={styles.line}></span>
+            <span className={styles.line}></span>
+          </div>
         </button>
       </div>
     </>
