@@ -49,6 +49,7 @@
   font-weight: 700;
   color: var(--color-white);
   letter-spacing: 0.3em;
+  padding-left: 0.3em; /* Offset trailing letter-spacing to center text mathematically */
   line-height: 1;
   margin: 0;
   text-shadow:
@@ -66,6 +67,7 @@
   font-weight: 500;
   color: var(--color-gold-primary);
   letter-spacing: 0.5em;
+  padding-left: 0.5em; /* Offset trailing letter-spacing to center text mathematically */
   margin-top: 1rem;
   text-transform: uppercase;
   opacity: 0;
