@@ -19,10 +19,11 @@ export const SpinWheel: React.FC<SpinWheelProps> = ({ activeSection }) => {
 
   if (!isMounted) return null;
 
-  // Find active index based on activeSection prop
+  // Find active index based on activeSection prop (mapping team-2 to team)
+  const resolvedSection = activeSection === 'team-2' ? 'team' : activeSection;
   const activeIndex = Math.max(
     0,
-    NAV_ITEMS.findIndex((item) => item.id === activeSection)
+    NAV_ITEMS.findIndex((item) => item.id === resolvedSection)
   );
 
   const handleItemClick = (index: number) => {

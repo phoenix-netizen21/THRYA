@@ -35,53 +35,56 @@ export default function CoreTeam() {
   const { conveners, coConveners, wings, yearCoordinators } = teamData;
 
   return (
-    <section id="team" className={styles.section}>
-      <div className={styles.container}>
-        <RevealGroup>
-          <h2 className={styles.title}>Core Team</h2>
-        </RevealGroup>
-
-        <div className={styles.treeNode}>
-          {/* CONVENERS */}
-          <RevealGroup className={styles.group}>
-            <h3 className={styles.groupTitle}>Conveners</h3>
-            <MemberGrid members={conveners} />
+    <>
+      <section id="team" className={styles.section}>
+        <div className={styles.container}>
+          <RevealGroup>
+            <h2 className={styles.title}>Core Team</h2>
           </RevealGroup>
 
-          <div className={styles.connector}></div>
-
-          {/* CO-CONVENERS */}
-          <RevealGroup className={styles.group}>
-            <h3 className={styles.groupTitle}>Co-Conveners</h3>
-            <MemberGrid members={coConveners} />
-          </RevealGroup>
-
-          <div className={styles.connector}></div>
-
-          {/* WINGS BRANCHING */}
-          <div className={styles.branchesContainer}>
-            {/* LOGISTICS & DOCUMENTATION */}
-            <RevealGroup className={styles.branchNode}>
-              <h4 className={styles.branchTitle}>Logistics & Documentation</h4>
-              <MemberGrid members={wings.logistics} />
+          <div className={styles.treeNode}>
+            {/* CONVENERS */}
+            <RevealGroup className={styles.group}>
+              <h3 className={styles.groupTitle}>Conveners</h3>
+              <MemberGrid members={conveners} />
             </RevealGroup>
 
-            {/* ACCOUNTS */}
-            <RevealGroup className={styles.branchNode}>
-              <h4 className={styles.branchTitle}>Accounts</h4>
-              <MemberGrid members={wings.accounts} />
+            <div className={styles.connector}></div>
+
+            {/* CO-CONVENERS */}
+            <RevealGroup className={styles.group}>
+              <h3 className={styles.groupTitle}>Co-Conveners</h3>
+              <MemberGrid members={coConveners} />
             </RevealGroup>
 
-            {/* MEDIA */}
-            <RevealGroup className={styles.branchNode}>
-              <h4 className={styles.branchTitle}>Media</h4>
-              <MemberGrid members={wings.media} />
-            </RevealGroup>
+            <div className={styles.connector}></div>
+
+            {/* WINGS BRANCHING */}
+            <div className={styles.branchesContainer}>
+              {/* LOGISTICS & DOCUMENTATION */}
+              <RevealGroup className={styles.branchNode}>
+                <h4 className={styles.branchTitle}>Logistics & Documentation</h4>
+                <MemberGrid members={wings.logistics} />
+              </RevealGroup>
+
+              {/* ACCOUNTS */}
+              <RevealGroup className={styles.branchNode}>
+                <h4 className={styles.branchTitle}>Accounts</h4>
+                <MemberGrid members={wings.accounts} />
+              </RevealGroup>
+
+              {/* MEDIA */}
+              <RevealGroup className={styles.branchNode}>
+                <h4 className={styles.branchTitle}>Media</h4>
+                <MemberGrid members={wings.media} />
+              </RevealGroup>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className={styles.connector}></div>
-
-          {/* YEAR-WISE CO-ORDINATORS */}
+      <section id="team-2" className={styles.yearSectionContainer}>
+        <div className={styles.container}>
           <div className={styles.yearSection}>
             <RevealGroup>
               <h3 className={styles.groupTitle}>Year-wise Co-ordinators</h3>
@@ -97,12 +100,10 @@ export default function CoreTeam() {
                 <h4 className={styles.branchTitle}>Year 3</h4>
                 <MemberGrid members={yearCoordinators.year3} />
               </RevealGroup>
-
             </div>
           </div>
-
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

@@ -12,7 +12,7 @@ import MobileNav from '@/components/navigation/MobileNav';
 import Footer from '@/components/shared/Footer';
 import DanceBackground from '@/components/shared/DanceBackground';
 
-const SECTION_IDS = ['home', 'about', 'events', 'team', 'gallery', 'contact'];
+const SECTION_IDS = ['home', 'about', 'events', 'team', 'team-2', 'gallery', 'contact'];
 
 export default function Home() {
   const activeSection = useActiveSection(SECTION_IDS);

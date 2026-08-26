@@ -80,6 +80,10 @@
   width: 56vw;
 }
 
+.team-2 {
+  width: 56vw;
+}
+
 .gallery {
   width: 58vw;
 }
@@ -116,8 +120,9 @@
   animation: slowZoomDrift 16s ease-in-out infinite;
 }
 
-/* Target opacity override for team section (less visible behind tree) */
-.team .active {
+/* Target opacity override for team sections (less visible behind tree) */
+.team .active,
+.team-2 .active {
   opacity: 0.3;
 }
 

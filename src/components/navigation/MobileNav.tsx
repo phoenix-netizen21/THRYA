@@ -91,7 +91,8 @@ export default function MobileNav({ activeSection }: MobileNavProps) {
             const x = 0;
             const y = -(62 + index * 56);
 
-            const isActive = activeSection === item.id;
+            const resolvedSection = activeSection === 'team-2' ? 'team' : activeSection;
+            const isActive = resolvedSection === item.id;
             
             const style = isOpen ? {
               transform: `translate(${x}px, ${y}px) scale(1)`,

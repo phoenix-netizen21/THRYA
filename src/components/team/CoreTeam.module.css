@@ -168,8 +168,16 @@
   }
 }
 
+.yearSectionContainer {
+  padding: 2rem 2rem 6rem;
+  background: transparent;
+  color: var(--color-white, #FFFFFF);
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
 .yearSection {
-  margin-top: 4rem;
   width: 100%;
 }
 
@@ -178,4 +186,17 @@
   flex-direction: column;
   gap: 3rem;
   width: 100%;
+}
+
+@media (min-width: 900px) {
+  .yearGroups {
+    flex-direction: row;
+    justify-content: center;
+    gap: 6rem;
+  }
+  
+  .yearGroups > div {
+    flex: 1;
+    max-width: 320px;
+  }
 }
