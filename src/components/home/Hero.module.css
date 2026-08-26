@@ -158,6 +158,7 @@
   font-size: 0.7rem;
   color: var(--color-gold-primary);
   letter-spacing: 0.3em;
+  padding-left: 0.3em; /* Offset trailing letter-spacing to center text mathematically */
   text-transform: uppercase;
   opacity: 0.6;
 }
