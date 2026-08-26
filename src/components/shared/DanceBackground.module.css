@@ -98,9 +98,9 @@
   transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: opacity, transform;
   mix-blend-mode: multiply;
-  /* Fade out the rectangular borders completely */
-  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 90%);
-  mask-image: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 90%);
+  /* Fade out the rectangular borders completely using a soft, centered ellipse */
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 70%);
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 70%);
 }
 
 .dancerLayer img {
@@ -108,7 +108,7 @@
   height: 100%;
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(0 0 25px rgba(220, 38, 38, 0.15)) brightness(0.7) contrast(1.1);
+  filter: brightness(0.7) contrast(1.1);
 }
 
 /* Active Layer with opacity and slow zoom/drift */
