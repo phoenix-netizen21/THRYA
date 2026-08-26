@@ -3,7 +3,6 @@
 import { useActiveSection } from '@/hooks/useActiveSection';
 import Hero from '@/components/home/Hero';
 import { About } from '@/components/about/About';
-import DanceSequence from '@/components/home/DanceSequence';
 import { Events } from '@/components/events/Events';
 import CoreTeam from '@/components/team/CoreTeam';
 import Gallery from '@/components/gallery/Gallery';
@@ -47,7 +46,6 @@ export default function Home() {
       <main style={{ position: 'relative', zIndex: 1 }}>
         <Hero />
         <About />
-        <DanceSequence />
         <Events />
         <CoreTeam />
         <Gallery />
