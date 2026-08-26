@@ -98,15 +98,6 @@ export default function CoreTeam() {
                 <MemberGrid members={yearCoordinators.year3} />
               </RevealGroup>
 
-              <RevealGroup className={styles.group}>
-                <h4 className={styles.branchTitle}>Year 2</h4>
-                <MemberGrid members={yearCoordinators.year2} />
-              </RevealGroup>
-
-              <RevealGroup className={styles.group}>
-                <h4 className={styles.branchTitle}>Year 1</h4>
-                <MemberGrid members={yearCoordinators.year1} />
-              </RevealGroup>
             </div>
           </div>
 

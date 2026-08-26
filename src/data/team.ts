@@ -162,7 +162,5 @@ export const teamData = {
         isLead: false,
       },
     ] as TeamMember[],
-    year2: [] as TeamMember[],
-    year1: [] as TeamMember[],
   },
 };
