@@ -78,13 +78,14 @@
 }
 
 .linkValue {
-  text-decoration: none;
+  color: var(--color-gold-primary) !important;
+  text-decoration: underline;
   transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 .linkValue:hover {
-  color: var(--color-gold-primary);
-  text-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+  color: var(--color-gold-light) !important;
+  text-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
 }
 
 .placeholder {
