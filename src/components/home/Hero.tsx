@@ -35,12 +35,6 @@ export default function Hero() {
           A celebration of tradition, talent and artistic expression.
         </p>
       </div>
-
-      {/* Scroll indicator */}
-      <div className={styles.scrollIndicator} aria-hidden="true">
-        <span className={styles.scrollText}>Scroll</span>
-        <div className={styles.scrollLine} />
-      </div>
     </section>
   );
 }
