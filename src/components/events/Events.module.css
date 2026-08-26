@@ -39,19 +39,12 @@
 }
 
 .emptyState {
-  background-color: var(--color-red-dark);
-  border: 1px solid rgba(245, 158, 11, 0.15);
-  border-radius: 12px;
-  padding: 4rem 2rem;
+  background-color: transparent;
+  border: none;
+  padding: 2rem 2rem;
   text-align: center;
   max-width: 600px;
   margin: 0 auto;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.emptyState:hover {
-  border-color: rgba(245, 158, 11, 0.4);
-  box-shadow: 0 0 20px var(--color-gold-glow);
 }
 
 .emptyIcon {
