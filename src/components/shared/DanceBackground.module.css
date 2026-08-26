@@ -157,6 +157,11 @@
     height: 65vh !important;
   }
   
+  .dancerLayer {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+  
   .active {
     opacity: 0.45 !important; /* Visible but soft on mobile viewports */
     animation: slowZoomDriftMobile 16s ease-in-out infinite;
