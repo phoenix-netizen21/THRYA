@@ -1,6 +1,6 @@
 .aboutSection {
   background-color: transparent;
-  padding: 6rem 2rem;
+  padding: 4.5rem 2rem;
   color: var(--color-white);
   overflow: hidden;
   will-change: transform;
@@ -27,7 +27,7 @@
 
 .heading {
   font-family: var(--font-playfair);
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(2.2rem, 5.5vw, 3.2rem);
   line-height: 1.1;
   color: var(--color-white);
   margin-bottom: 1.5rem;
@@ -52,7 +52,7 @@
   color: var(--color-off-white);
   font-weight: 300;
   line-height: 1.8;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 

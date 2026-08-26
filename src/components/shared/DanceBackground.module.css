@@ -69,7 +69,7 @@
 }
 
 .about {
-  width: 52vw;
+  width: 44vw; /* Reduced from 52vw to make it subtle */
 }
 
 .events {
@@ -147,13 +147,17 @@
 /* ---------- 5. Mobile Responsive Configuration ---------- */
 @media (max-width: 768px) {
   .dancerWrapper {
-    width: 90vw !important;
+    width: 80vw !important; /* Reduced from 90vw to keep it subtle */
     left: 50% !important;
     right: auto !important;
     top: 50% !important;
     bottom: auto !important;
     transform: translate(-50%, -50%) !important;
     height: 60vh !important;
+  }
+  
+  .about {
+    width: 68vw !important; /* Make the about pose even more subtle and smaller on mobile */
   }
   
   .active {
