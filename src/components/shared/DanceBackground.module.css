@@ -157,7 +157,7 @@
   }
   
   .active {
-    opacity: 0.12 !important; /* Low opacity on mobile to prevent blocking text */
+    opacity: 0.45 !important; /* Visible but soft on mobile viewports */
     animation: slowZoomDriftMobile 16s ease-in-out infinite;
   }
 
