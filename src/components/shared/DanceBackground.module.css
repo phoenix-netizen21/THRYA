@@ -1,0 +1,196 @@
+.backgroundContainer {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  background-color: #0d0101;
+  pointer-events: none;
+}
+
+/* ---------- 1. WebGL/Base Canvas Layer ---------- */
+.baseLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* ---------- 2. Drifting Smoke Layers (z-index 1) ---------- */
+.smokeLayer {
+  position: absolute;
+  inset: -15%; /* Overflow to prevent edges showing during translate drift */
+  z-index: 1;
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.smoke1 {
+  background: radial-gradient(circle at 20% 30%, rgba(220, 38, 38, 0.15) 0%, transparent 60%),
+              radial-gradient(circle at 80% 70%, rgba(153, 27, 27, 0.1) 0%, transparent 70%);
+  animation: driftSmoke1 22s ease-in-out infinite;
+}
+
+.smoke2 {
+  background: radial-gradient(circle at 75% 25%, rgba(220, 38, 38, 0.12) 0%, transparent 60%),
+              radial-gradient(circle at 25% 75%, rgba(153, 27, 27, 0.15) 0%, transparent 70%);
+  animation: driftSmoke2 28s ease-in-out infinite reverse;
+}
+
+@keyframes driftSmoke1 {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(-3%, 2%) scale(1.08) rotate(2deg); }
+  100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+}
+
+@keyframes driftSmoke2 {
+  0% { transform: translate(0, 0) scale(1.08) rotate(0deg); }
+  50% { transform: translate(2%, -3%) scale(0.95) rotate(-3deg); }
+  100% { transform: translate(0, 0) scale(1.08) rotate(0deg); }
+}
+
+/* ---------- 3. Dancer Silhouette Wrapper (z-index 2) ---------- */
+.dancerWrapper {
+  position: absolute;
+  top: 10vh;
+  bottom: 0;
+  right: 0;
+  width: 50vw;
+  height: 90vh;
+  z-index: 2;
+  pointer-events: none;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), 
+              right 1.2s cubic-bezier(0.25, 1, 0.5, 1), 
+              width 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Section-Specific Positioning & Offsets */
+.home {
+  right: 2%;
+  width: 52vw;
+}
+
+.about {
+  right: 8%;
+  width: 44vw;
+}
+
+.events {
+  right: 3%;
+  width: 48vw;
+}
+
+.team {
+  right: 4%;
+  width: 48vw;
+}
+
+.gallery {
+  right: 6%;
+  width: 46vw;
+}
+
+.contact {
+  right: 2%;
+  width: 42vw;
+}
+
+/* Dual layers for the crossfade transition */
+.dancerLayer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.dancerLayer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom right;
+  filter: drop-shadow(0 0 25px rgba(220, 38, 38, 0.15)) brightness(0.7) contrast(1.1);
+}
+
+/* Active Layer with opacity and slow zoom/drift */
+.active {
+  opacity: 0.35; /* Subtle transparency to preserve content readability */
+  animation: slowZoomDrift 16s ease-in-out infinite;
+}
+
+/* Target opacity override for team section (less visible behind tree) */
+.team .active {
+  opacity: 0.15;
+}
+
+@keyframes slowZoomDrift {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.03) translate(-1%, -0.5%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+/* ---------- 4. Dark/Red Gradient Overlay Layer (z-index 3) ---------- */
+.overlayLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 25% 40%, rgba(13, 1, 1, 0.2) 0%, rgba(13, 1, 1, 0.85) 75%),
+    linear-gradient(180deg, rgba(13, 1, 1, 0.4) 0%, rgba(13, 1, 1, 0.95) 100%);
+}
+
+/* ---------- 5. Mobile Responsive Configuration ---------- */
+@media (max-width: 768px) {
+  .dancerWrapper {
+    width: 80vw !important;
+    right: 5% !important;
+    top: 20vh;
+    height: 80vh;
+  }
+  
+  .active {
+    opacity: 0.12 !important; /* Low opacity on mobile to prevent blocking text */
+    animation: slowZoomDriftMobile 16s ease-in-out infinite;
+  }
+
+  @keyframes slowZoomDriftMobile {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .overlayLayer {
+    background: 
+      radial-gradient(circle at 50% 30%, rgba(13, 1, 1, 0.1) 0%, rgba(13, 1, 1, 0.9) 70%),
+      linear-gradient(180deg, rgba(13, 1, 1, 0.3) 0%, rgba(13, 1, 1, 0.95) 100%);
+  }
+}
+
+/* ---------- 6. Accessibility/Reduced Motion Support ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .dancerLayer {
+    transition: opacity 0.5s ease !important;
+  }
+  
+  .active {
+    animation: none !important;
+  }
+  
+  .smokeLayer {
+    animation: none !important;
+    opacity: 0.15;
+  }
+}
