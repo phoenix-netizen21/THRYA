@@ -13,6 +13,14 @@ export const teamData = {
       position: 'Convener',
       isLead: true,
     },
+    {
+      id: 'conv-2',
+      name: 'Anjana R Nair',
+      department: 'Traditional Arts Club',
+      photoUrl: '/images/team/anjana-r-nair.jpeg',
+      position: 'Convener',
+      isLead: true,
+    },
   ] as TeamMember[],
 
   coConveners: [

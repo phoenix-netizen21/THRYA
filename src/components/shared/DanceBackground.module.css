@@ -157,7 +157,7 @@
   }
   
   .active {
-    opacity: 0.65 !important; /* Brighter visibility, matching desktop */
+    opacity: 0.8 !important; /* Boosted visibility for mobile viewports */
     animation: slowZoomDriftMobile 16s ease-in-out infinite;
   }
 
