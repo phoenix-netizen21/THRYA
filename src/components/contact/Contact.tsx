@@ -10,10 +10,10 @@ export default function Contact() {
   const [sectionRef, isVisible] = useScrollReveal();
 
   const cards = [
-    { id: 'phone', icon: '☎', label: 'Phone', value: contactInfo.phone || 'Coming soon' },
-    { id: 'email', icon: '✉', label: 'Email', value: contactInfo.email || 'Coming soon' },
-    { id: 'instagram', icon: '◈', label: 'Instagram', value: contactInfo.instagram || 'Coming soon' },
-    { id: 'location', icon: '◉', label: 'Location', value: contactInfo.location || 'Coming soon' }
+    { id: 'phone', icon: '☎', label: 'Phone', value: contactInfo.phone || 'Coming soon', link: contactInfo.phone ? `tel:${contactInfo.phone}` : undefined },
+    { id: 'email', icon: '✉', label: 'Email', value: contactInfo.email || 'Coming soon', link: contactInfo.email ? `mailto:${contactInfo.email}` : undefined },
+    { id: 'instagram', icon: '◈', label: 'Instagram', value: contactInfo.instagram || 'Coming soon', link: contactInfo.instagram ? `https://www.instagram.com/_.thrya._?igsi=MnhtendwM29lZm1q` : undefined },
+    { id: 'location', icon: '◉', label: 'Location', value: contactInfo.location || 'Coming soon', link: undefined }
   ];
 
   return (
@@ -30,9 +30,20 @@ export default function Contact() {
             <div key={card.id} className={styles.card}>
               <div className={styles.icon}>{card.icon}</div>
               <h3 className={styles.label}>{card.label}</h3>
-              <p className={`${styles.value} ${!contactInfo[card.id as keyof ContactInfo] ? styles.placeholder : ''}`}>
-                {card.value}
-              </p>
+              {card.link ? (
+                <a 
+                  href={card.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={`${styles.value} ${styles.linkValue}`}
+                >
+                  {card.value}
+                </a>
+              ) : (
+                <p className={`${styles.value} ${!contactInfo[card.id as keyof ContactInfo] ? styles.placeholder : ''}`}>
+                  {card.value}
+                </p>
+              )}
             </div>
           ))}
         </div>

@@ -77,6 +77,16 @@
   font-size: 1rem;
 }
 
+.linkValue {
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.linkValue:hover {
+  color: var(--color-gold-primary);
+  text-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
 .placeholder {
   color: #666;
   font-style: italic;

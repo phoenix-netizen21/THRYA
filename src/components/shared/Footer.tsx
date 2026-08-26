@@ -22,8 +22,16 @@ export default function Footer() {
         </nav>
 
         <div className={styles.socialSection}>
-          <a href="#" className={styles.socialIcon} aria-label="Instagram">◈</a>
-          <a href="#" className={styles.socialIcon} aria-label="Email">✉</a>
+          <a 
+            href="https://www.instagram.com/_.thrya._?igsi=MnhtendwM29lZm1q" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className={styles.socialIcon} 
+            aria-label="Instagram"
+          >
+            ◈
+          </a>
+          <a href="#contact" className={styles.socialIcon} aria-label="Email">✉</a>
         </div>
 
         <div className={styles.bottomSection}>
