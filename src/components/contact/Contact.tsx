@@ -13,7 +13,7 @@ export default function Contact() {
     { id: 'phone', icon: '☎', label: 'Phone', value: contactInfo.phone || 'Coming soon', link: contactInfo.phone ? `tel:${contactInfo.phone}` : undefined },
     { id: 'email', icon: '✉', label: 'Email', value: contactInfo.email || 'Coming soon', link: contactInfo.email ? `mailto:${contactInfo.email}` : undefined },
     { id: 'instagram', icon: '◈', label: 'Instagram', value: contactInfo.instagram || 'Coming soon', link: contactInfo.instagram ? `https://www.instagram.com/_.thrya._?igsi=MnhtendwM29lZm1q` : undefined },
-    { id: 'location', icon: '◉', label: 'Location', value: contactInfo.location || 'Coming soon', link: undefined }
+    { id: 'location', icon: '◉', label: 'Location', value: contactInfo.location || 'Coming soon', link: contactInfo.location ? 'https://maps.app.goo.gl/tAGrio7KeaqaTB296' : undefined }
   ];
 
   return (
