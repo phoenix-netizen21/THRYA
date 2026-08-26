@@ -122,6 +122,14 @@ export const teamData = {
         position: 'Media Coordinator',
         isLead: false,
       },
+      {
+        id: 'med-3',
+        name: 'Neha',
+        department: 'Media',
+        photoUrl: '/images/team/neha.jpeg',
+        position: 'Media Coordinator',
+        isLead: false,
+      },
     ] as TeamMember[],
   },
 
