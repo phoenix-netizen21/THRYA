@@ -66,6 +66,8 @@ export const OptionWheel: React.FC<OptionWheelProps> = ({
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const audioUrlRef = useRef('');
   const lastTickRef = useRef(0);
+  const accumDeltaRef = useRef(0);
+  const lastWheelTimeRef = useRef(0);
   const [selectedIndex, setSelectedIndex] = useState(selected);
   const [isDragging, setIsDragging] = useState(false);
 
@@ -201,16 +203,31 @@ export const OptionWheel: React.FC<OptionWheelProps> = ({
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       const cfg = cfgRef.current;
+      const now = performance.now();
+      
+      // Reset accumulator if there's a long pause
+      if (now - lastWheelTimeRef.current > 180) {
+        accumDeltaRef.current = 0;
+      }
+      lastWheelTimeRef.current = now;
+
       const delta = e.deltaMode === 1 ? e.deltaY * 24 : e.deltaY;
-      const step = Math.max(-1, Math.min(1, delta / cfg.rowH));
-      applyTarget(targetRef.current + step, false);
-      if (wheelTimerRef.current) clearTimeout(wheelTimerRef.current);
-      wheelTimerRef.current = setTimeout(() => applyTarget(targetRef.current, true), 140);
+      accumDeltaRef.current += delta;
+
+      // Use dynamic threshold to handle slow and fast scrolling
+      const threshold = 45;
+      if (Math.abs(accumDeltaRef.current) >= threshold) {
+        const direction = accumDeltaRef.current > 0 ? 1 : -1;
+        accumDeltaRef.current = 0; // Reset accumulator
+
+        // Move target to next integer index
+        const currentTarget = Math.round(targetRef.current);
+        applyTarget(currentTarget + direction, true);
+      }
     };
     el.addEventListener('wheel', onWheel, { passive: false });
     return () => {
       el.removeEventListener('wheel', onWheel);
-      if (wheelTimerRef.current) clearTimeout(wheelTimerRef.current);
     };
   }, [applyTarget]);
 

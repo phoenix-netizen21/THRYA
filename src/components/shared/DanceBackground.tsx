@@ -12,29 +12,14 @@ interface DanceBackgroundProps {
 // Static color reference for Aurora background
 const AURORA_COLORS = ["#ffd700", "#F6B93B", "#f70000"];
 
+const SECTIONS = ['home', 'about', 'events', 'team', 'gallery', 'contact'];
+
 export const DanceBackground: React.FC<DanceBackgroundProps> = ({ activeSection }) => {
-  const [poseA, setPoseA] = useState<string>('');
-  const [poseB, setPoseB] = useState<string>('');
-  const [activeLayer, setActiveLayer] = useState<'A' | 'B'>('A');
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
-
-  // Update layout when section changes to crossfade between layers
-  useEffect(() => {
-    if (!activeSection) return;
-    const newPosePath = `/background-poses/${activeSection}-pose.png`;
-
-    if (activeLayer === 'A') {
-      setPoseB(newPosePath);
-      setActiveLayer('B');
-    } else {
-      setPoseA(newPosePath);
-      setActiveLayer('A');
-    }
-  }, [activeSection]);
 
   if (!isMounted) {
     return <div className={styles.backgroundContainer} />;
@@ -58,31 +43,24 @@ export const DanceBackground: React.FC<DanceBackgroundProps> = ({ activeSection 
 
       {/* 3. Dancer Silhouette layers */}
       <div className={`${styles.dancerWrapper} ${styles[activeSection] || ''}`} aria-hidden="true">
-        {/* Layer A */}
-        {poseA && (
-          <div className={`${styles.dancerLayer} ${activeLayer === 'A' ? styles.active : ''}`}>
-            <Image
-              src={poseA}
-              alt="Bharatanatyam silhouette background pose A"
-              fill
-              priority
-              sizes="(max-width: 768px) 80vw, 50vw"
-            />
-          </div>
-        )}
-
-        {/* Layer B */}
-        {poseB && (
-          <div className={`${styles.dancerLayer} ${activeLayer === 'B' ? styles.active : ''}`}>
-            <Image
-              src={poseB}
-              alt="Bharatanatyam silhouette background pose B"
-              fill
-              priority
-              sizes="(max-width: 768px) 80vw, 50vw"
-            />
-          </div>
-        )}
+        {SECTIONS.map((sec) => {
+          const isActive = activeSection === sec;
+          return (
+            <div
+              key={sec}
+              className={`${styles.dancerLayer} ${isActive ? styles.active : ''}`}
+            >
+              <Image
+                src={`/background-poses/${sec}-pose.png`}
+                alt={`Bharatanatyam silhouette background pose for ${sec}`}
+                fill
+                priority
+                sizes="(max-width: 768px) 80vw, 50vw"
+                quality={85}
+              />
+            </div>
+          );
+        })}
       </div>
 
       {/* 4. Text Readability Gradient Overlay */}
